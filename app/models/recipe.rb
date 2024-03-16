@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :ingredients
+  accepts_nested_attributes_for :ingredients
 
   enum visibility: [:hidden, :friends, :restricted]
 

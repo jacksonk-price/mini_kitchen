@@ -1,0 +1,4 @@
+<%= render 'shared/turbo_modal', title: 'Add an Ingredient' do %>
+  <%= render partial: 'form', locals: { ingredient: @ingredient, recipe_id: @recipe.id } %>
+<% end %>
+

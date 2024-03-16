@@ -1,0 +1,34 @@
+<%= form_for @ingredient, data: { turbo_frame: :_top } do |form| %>
+  <% if ingredient.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+      <ul>
+        <% ingredient.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :recipe_id, value: recipe_id %>
+
+  <div class="ingredients__ingredient">
+    <fieldset>
+      <legend><span class="accessibility">Add an Ingredient</span></legend>
+        <%= form.label :amount, 'Amount (opt.)', class: 'label' %>
+        <%= form.text_field :amount, class: 'input' %>
+
+        <%= form.label :measurement, 'Measurement (opt.)', class: 'label' %>
+        <%= form.text_field :measurement, class: 'input' %>
+
+        <%= form.label :description, 'Name', class: 'label' %>
+        <%= form.text_field :description, class: 'input' %>
+    </fieldset>
+
+    <%= form.submit 'Save', class: 'button button--primary button--block w-100 mt-8' %>
+  </div>
+<% end %>
+<% if @editing %>
+  <%= button_to 'Delete', ingredient_path(@ingredient.id), class: 'button button--danger button--block w-100 mt-4', method: :delete, data: { turbo_frame: :_top } %>
+<% end %>

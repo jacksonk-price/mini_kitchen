@@ -1,8 +1,42 @@
-<p style="color: green"><%= notice %></p>
+<section class="recipe__head">
+  <div class="recipe__time-container">
+    <%= image_tag 'timer.svg', width: 15, height: 15 %>
+    <p class="recipe__cook-time"><%= @recipe.cook_time %></p>
+  </div>
+  <h1 class="section__title section__title--h1"><%= @recipe.title %></h1>
+  <% if @recipe.description.present? %>
+    <p class="recipe__description"><%= @recipe.description %></p>
+  <% end %>
+</section>
+<hr>
+<section class="ingredients">
+  <div class="ingredients__header">
+    <h2 class="section__title--h2">Ingredients</h2>
+    <%= link_to new_ingredient_path(recipe_id: @recipe.id), class: 'button button--secondary', data: { turbo_frame: 'modal' } do %>
+      <%= image_tag 'plus.svg', width: 25, height: 25 %>
+      Add Ingredient
+    <% end %>
+  </div>
+  <div class="ingredients__container">
+    <% @ingredients.each do |ingredient| %>
+      <div class="ingredient">
+        <p class="ingredient__line-item">
+          <%= ingredient.amount.present? ? ingredient.amount : '' %>
+          <%= ingredient.measurement.present? ? ingredient.measurement : '' %>
+          <%= ingredient.description %>
+        </p>
+        <div class="ingredient__actions">
+          <%= link_to edit_ingredient_path(ingredient.id, recipe_id: @recipe.id), data: { turbo_frame: 'modal' } do %>
+            <%= image_tag 'edit.svg', width: 25, height: 25 %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</section>
 
-<%= render @recipe %>
-
-<div>
+<div class="mt-8">
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
 

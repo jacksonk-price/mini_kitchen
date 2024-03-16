@@ -13,3 +13,338 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root {
+    --opacity: 1;
+    --opacity-0: 0;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-25: 0.25;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-75: 0.75;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+    --opacity-95: 0.95;
+    --background: hsl(24, 33%, 97%);
+    --background-gray: #FAFAFA;
+    --primary: #FD6D0D;
+    --text: black;
+    --red-500: #EF4444;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --gray-200: #e5e7eb;
+    --gray-300: #e2e8f0;
+    --zinc-500: #71717a;
+    --zinc-600: #52525b;
+    --border: 1px rgb(229, 231, 235) solid;
+    --border-radius: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+input {
+    color: var(--text);
+}
+
+hr {
+    opacity: var(--opacity-10);
+    margin: 1rem 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.dialog {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    box-shadow: 0 25px 50px -12px #00000040;
+    background-color: var(--background);
+    border-radius: var(--border-radius);
+    border: var(--border);
+    width: 100%;
+    max-width: 500px;
+    padding: 1.5rem;
+    animation: fadeIn 0.2s ease;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border);
+    padding-bottom: 1rem;
+}
+
+.dismiss__x {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.dialog__head-title {
+
+}
+
+.dialog__body {
+    padding-top: 1.5rem;
+}
+
+fieldset {
+    border: none !important;
+}
+
+legend span.accessibility {
+    position:absolute;
+    left:-9999px;
+    width:100px;
+    height:auto;
+    overflow:hidden;
+}
+
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: #333;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.1s ease;
+}
+
+.button:focus {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
+}
+
+.button--block {
+    display: block;
+}
+
+.button--small {
+    font-size: 0.875rem;
+    line-height: 1.25;
+}
+
+.button--primary {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.button--primary:hover {
+    background-color: #e66416;
+}
+
+.button--secondary {
+    background-color: #fff;
+    border: var(--border);
+}
+
+.button--secondary:hover {
+    background-color: var(--slate-50);
+}
+
+.button--danger {
+    border: 1px var(--red-500) solid;
+    background-color: #fff;
+    color: var(--red-500)
+}
+
+.button--danger:hover {
+    background-color: rgba(239, 68, 68, 0.03);
+}
+
+.input {
+    padding: 1rem;
+    border: var(--border);
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* Recipe */
+.recipe__time-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recipe__cook-time {
+    font-size: 0.8rem;
+}
+
+.recipe__description {
+    margin-top: 1rem;
+}
+
+/* Ingredients */
+.ingredients__container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ingredients__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredient {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-muted {
+    color: var(--zinc-500);
+    font-weight: 500;
+}
+
+.label {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.section__title {
+    font-weight: 700;
+}
+
+.section__title--h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.section__title--h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+}
+
+/* Margin classes */
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 0.75rem; }
+.m-4 { margin: 1rem; }
+.m-8 { margin: 2rem; }
+
+/* Horizontal Margin classes */
+.mx-1 { margin-right: 0.25rem; margin-left: 0.25rem; }
+.mx-2 { margin-right: 0.5rem; margin-left: 0.5rem; }
+.mx-3 { margin-right: 0.75rem; margin-left: 0.75rem; }
+.mx-4 { margin-right: 1rem; margin-left: 1rem; }
+.mx-8 { margin-right: 2rem; margin-left: 2rem; }
+
+/* Vertical Margin classes */
+.my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+.my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-8 { margin-top: 2rem; margin-bottom: 2rem; }
+
+/* Top Margin classes */
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+/* Bottom Margin classes */
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+/* Padding classes */
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-8 { padding: 2rem; }
+
+/* Horizontal Padding classes */
+.px-1 { padding-right: 0.25rem; padding-left: 0.25rem; }
+.px-2 { padding-right: 0.5rem; padding-left: 0.5rem; }
+.px-3 { padding-right: 0.75rem; padding-left: 0.75rem; }
+.px-4 { padding-right: 1rem; padding-left: 1rem; }
+.px-8 { padding-right: 2rem; padding-left: 2rem; }
+
+/* Vertical Padding classes */
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+
+/* Top Padding classes */
+.pt-1 { padding-top: 0.25rem; }
+.pt-2 { padding-top: 0.5rem; }
+.pt-3 { padding-top: 0.75rem; }
+.pt-4 { padding-top: 1rem; }
+.pt-8 { padding-top: 2rem; }
+
+/* Bottom Padding classes */
+.pb-1 { padding-bottom: 0.25rem; }
+.pb-2 { padding-bottom: 0.5rem; }
+.pb-3 { padding-bottom: 0.75rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-8 { padding-bottom: 2rem; }
+
+.w-100 { width: 100%; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

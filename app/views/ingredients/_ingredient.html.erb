@@ -1,0 +1,11 @@
+<div class="ingredients__ingredient">
+  <p class="ingredients__ingredient-description">
+    <%= ingredient.amount.present? ? ingredient.amount : '' %>
+    <%= ingredient.measurement.present? ? ingredient.measurement : '' %>
+    <%= ingredient.description %>
+  </p>
+  <div class="ingredients__ingredient-actions">
+    <%= link_to "Edit", edit_ingredient_path(ingredient, recipe_id: recipe.id), class: 'button button--secondary button--small' %>
+    <%= button_to "Delete", ingredient, method: :delete, class: 'button button--danger button--small' %>
+  </div>
+</div>

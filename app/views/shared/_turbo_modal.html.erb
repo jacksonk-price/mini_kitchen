@@ -1,0 +1,15 @@
+<%= turbo_frame_tag 'modal' do %>
+  <dialog class="dialog" data-modal>
+    <% if local_assigns[:title] %>
+      <div class="dialog__head">
+        <p>
+          <%= local_assigns[:title] %>
+        </p>
+        <%= button_tag '&times;'.html_safe, clasS: 'dismiss__x', data: { close_modal: '' } %>
+      </div>
+    <% end %>
+    <div class="dialog__body">
+      <%= yield %>
+    </div>
+  </dialog>
+<% end %>

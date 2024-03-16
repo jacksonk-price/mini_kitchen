@@ -33,6 +33,11 @@
     <%= form.select :visibility, options_for_select(@visibility_options, @recipe.visibility.to_s) %>
   </div>
 
+  <%= form.fields_for :ingredients do |ingredients_field| %>
+    <%= ingredients_field.label :description %>
+    <%= ingredients_field.text_field :description %>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>
